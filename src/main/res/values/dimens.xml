@@ -7,4 +7,5 @@
     <dimen name="tamanio_Titulo">20sp</dimen>
     <dimen name="margen_HomeSubtitulo">10dp</dimen>
     <dimen name="tamanio_Subtituo">15sp</dimen>
+    <dimen name="card_Corner_Radius">4dp</dimen>
 </resources>
