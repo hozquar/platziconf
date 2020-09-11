@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="height_logo_platzi">45dp</dimen>
+    <dimen name="height_Toolbar">30dp</dimen>
+    <dimen name="card_CornerRadius">4dp</dimen>
+    <dimen name="height_imageViewHome">150dp</dimen>
+    <dimen name="tamanio_Titulo">20sp</dimen>
+    <dimen name="margen_HomeSubtitulo">10dp</dimen>
+    <dimen name="tamanio_Subtituo">15sp</dimen>
+</resources>
