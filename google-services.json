@@ -15,10 +15,47 @@
       },
       "oauth_client": [
         {
-          "client_id": "1029401242379-s31mjubrlp91ig2qi0v7s6j0j1bcifsn.apps.googleusercontent.com",
+          "client_id": "1029401242379-ll9a6bb91uedc9vcesvj4evrltm7jv0e.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.platziconf",
+            "certificate_hash": "18a9fbe6ee6792d6a1c060e8f5a07ef0494d90ea"
+          }
+        },
+        {
+          "client_id": "1029401242379-sd7flk7ti1sisnkuehabrhhgqmglkrfr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgr0ufjcKn85qZG16Gp5E4SdsjH8WkcAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1029401242379-sd7flk7ti1sisnkuehabrhhgqmglkrfr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029401242379:android:da936c9f4d56a6b8fed00e",
+        "android_client_info": {
+          "package_name": "com.platzi.conf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1029401242379-6jg2tlpmfno1j9at6qvs6o26gki5ni09.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.platzi.conf",
             "certificate_hash": "18a9fbe6ee6792d6a1c060e8f5a07ef0494d90ea"
           }
         },

@@ -2,11 +2,11 @@ package model
 
 class Speaker {
 
-    var nanme=""
-    var jobtiitle=""
+    var name=""
+    var jobtitle=""
     var workplace=""
     var biography=""
-    var Twittter=""
-    var imagee=""
-
+    var twitter=""
+    var image=""
+    var category=0
 }

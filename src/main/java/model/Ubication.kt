@@ -7,5 +7,5 @@ class Ubication{
     val longitude=""
     val phone=""
     val website=""
-    val pphoto=""
+    val photo=""
 }
