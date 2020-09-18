@@ -1,4 +1,4 @@
-package model
+package com.example.platziconf.model
 
 import java.util.*
 

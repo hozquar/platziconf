@@ -1,4 +1,4 @@
-package model
+package com.example.platziconf.model
 
 class Ubication{
     val name=""

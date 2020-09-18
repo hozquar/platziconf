@@ -3,8 +3,8 @@ package com.example.platziconf
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.firestore.FirebaseFirestore
-import model.Conference
-import model.Speaker
+import com.example.platziconf.model.Conference
+import com.example.platziconf.model.Speaker
 import org.json.JSONArray
 import org.json.JSONObject
 import java.util.*
