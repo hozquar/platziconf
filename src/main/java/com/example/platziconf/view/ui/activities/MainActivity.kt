@@ -1,7 +1,8 @@
-package com.example.platziconf
+package com.example.platziconf.view.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.platziconf.R
 import com.google.firebase.firestore.FirebaseFirestore
 import com.example.platziconf.model.Conference
 import com.example.platziconf.model.Speaker
