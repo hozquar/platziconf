@@ -1,6 +1,6 @@
 package com.example.platziconf.view.adapter
+import com.example.platziconf.model.Conference
 
-import android.telecom.Conference
 import java.text.FieldPosition
 
 interface ScheduleListener {

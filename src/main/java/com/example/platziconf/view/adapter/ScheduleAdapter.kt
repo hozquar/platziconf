@@ -1,12 +1,12 @@
 package com.example.platziconf.view.adapter
 
+import com.example.platziconf.model.Conference
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.platziconf.R
-import com.example.platziconf.model.Conference
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -41,6 +41,10 @@ class ScheduleAdapter(val scheduleListener: ScheduleListener):RecyclerView.Adapt
 
         holder.tvConferenceHour.text = hourFormat
         holder.tvConferenceAMPM.text = simpleDateFormatAMPM.format(conference.datetime).toUpperCase()
+
+        holder.itemView.setOnClickListener {
+            scheduleListener.onConferenceClicked(conference,position)
+        }
     }
 
 
