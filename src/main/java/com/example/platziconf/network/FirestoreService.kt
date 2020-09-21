@@ -4,7 +4,7 @@ import com.example.platziconf.model.Conference
 import com.example.platziconf.model.Speaker
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
-import javax.security.auth.callback.Callback
+
 
 //llama a las bases de datos conference y speakers para ser leidas en FirestoreService
 const val CONFERENCES_COLLECTION_NAME = "conference"
@@ -20,15 +20,16 @@ val settings= FirebaseFirestoreSettings.Builder().setPersistenceEnabled(true).bu
         firebaseFirestore.firestoreSettings = settings
     }
 
-    //esta funciion llama a la llista del Speakers_collection o la base de firesstore
-    fun getSpeakers(callback: Callback<List<Speaker>>){
+    //esta funciion llama a la lista del Speakers_collection o la base de firesstore
+    fun getSpeakers(callback: Callback<List<Speaker>>) {
         firebaseFirestore.collection(SPEAKERS_COLLECTION_NAME)
             .orderBy("category") //la organiza por categoria
             .get() //La  obtiene
             .addOnSuccessListener { result-> //la guarda como result ordenada y la envia a callback
                 for (doc in result){
-                    var list=result.toObjects(Speaker::class.java)
-                    callback.onSucces()
+                    val list=result.toObjects(Speaker::class.java)
+                    callback.onSucces(list)
+                    break
                  }
             }
 
@@ -39,8 +40,9 @@ val settings= FirebaseFirestoreSettings.Builder().setPersistenceEnabled(true).bu
             .get()
             .addOnSuccessListener { result->
                 for (doc in result){
-                    var list=result.toObjects(Conference::class.java)
-                    callback.onSucces()
+                    val list=result.toObjects(Conference::class.java)
+                    callback.onSucces(list)
+                    break
                 }
             }
     }

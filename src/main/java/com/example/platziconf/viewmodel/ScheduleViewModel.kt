@@ -1,7 +1,7 @@
 package com.example.platziconf.viewmodel
 
-import android.telecom.Conference
 import androidx.lifecycle.MutableLiveData
+import com.example.platziconf.model.Conference
 import com.example.platziconf.network.Callback
 import com.example.platziconf.network.FirestoreService
 import java.lang.Exception
@@ -17,7 +17,7 @@ class ScheduleViewModel { //aqui se mantiene refresca los datos por fuera de la 
 
     fun getScheduleFirebase(){ //llama a la lista calendario guardada en el callback
         firestoreService.getSchedule(object: Callback<List<Conference>>{
-            override fun onSucces(result: List<Conference>) {
+            override fun onSucces(result: List<Conference>?) {
                 listSchedule.postValue(result) //si es valor es el adecuado la lista mutable recibe el resultado de la lista ordenada
                 processFinished()//termina la carga de la lista
             }
