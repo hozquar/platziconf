@@ -13,7 +13,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvScheduleHour"
+                android:id="@+id/tvItemScheduleHour"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="00:00"
@@ -22,7 +22,7 @@
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold"/>
             <TextView
-                android:id="@+id/tvScheduleHourAMPM"
+                android:id="@+id/tvItemScheduleHourAMPM"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="A.M."
@@ -40,7 +40,7 @@
             android:orientation="vertical"
             android:layout_marginLeft="10sp">
             <TextView
-                android:id="@+id/tvItemSchedualeconferenceName"
+                android:id="@+id/tvItemScheduleconferenceName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nombre de laconferencia"
@@ -59,7 +59,7 @@
                 android:ellipsize="end"
                 android:lines="1"/>
             <TextView
-                android:id="@+id/tcItemScheduletag"
+                android:id="@+id/tvItemScheduletag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="tag"
