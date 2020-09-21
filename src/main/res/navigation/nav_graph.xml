@@ -24,7 +24,7 @@
             app:destination="@id/speakersFragment" />
         <action
             android:id="@+id/action_shceduleFragment_to_sheludeDetailDialogFragment"
-            app:destination="@id/sheludeDetailDialogFragment" />
+            app:destination="@id/scheludeDetailDialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/speakersFragment"
@@ -38,7 +38,7 @@
             app:destination="@id/ubicationdetailDialogFragment" />
     </fragment>
     <fragment
-        android:id="@+id/sheludeDetailDialogFragment"
+        android:id="@+id/scheludeDetailDialogFragment"
         android:name="com.example.platziconf.view.ui.fragment.SheludeDetailDialogFragment"
         android:label="SheludeDetailDialogFragment" />
     <fragment

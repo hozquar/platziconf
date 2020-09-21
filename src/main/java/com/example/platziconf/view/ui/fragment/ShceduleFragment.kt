@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -24,9 +23,7 @@ class ShceduleFragment : Fragment(), ScheduleListener{//implementa con dos punto
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
-
         return inflater.inflate(R.layout.fragment_shcedule, container, false)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,34 +31,26 @@ class ShceduleFragment : Fragment(), ScheduleListener{//implementa con dos punto
 
         viewModel = ViewModelProviders.of(this).get(ScheduleViewModel::class.java)//con ViewModel le agrega la clase ScheduleViewModel
         viewModel.refresh() //la activa para buscar los datos
-
         scheduleAdapter = ScheduleAdapter(this) //trae el adaptador
-
         rv_Schcedule.apply {
             layoutManager = LinearLayoutManager(view.context , LinearLayoutManager.VERTICAL , false)
             adapter = scheduleAdapter //trae el recicler vier de fragmet_scheddule.xml
         }
-
         observerViewModel() //la mantiene obervada
-
     }
 
     fun observerViewModel(){ //para observarla
         viewModel.listSchedule.observe(this, Observer <List<Conference>>{ schedule->
             scheduleAdapter.update(schedule)
         })
-
         viewModel.isLoading.observe(this, Observer<Boolean>{
             if (it != null)
                 rlBaseSchedule.visibility = View.INVISIBLE
         })
-
     }
 
     override fun onConferenceClicked(conference: Conference, position: Int) {
         val bundle = bundleOf("conference" to conference)
-        findNavController().navigate(R.id.sheludeDetailDialogFragment, bundle)
+        findNavController().navigate(R.id.scheludeDetailDialogFragment, bundle)
     }
-
-
 }
