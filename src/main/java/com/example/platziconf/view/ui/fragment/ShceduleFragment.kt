@@ -60,7 +60,7 @@ class ShceduleFragment : Fragment(), ScheduleListener{//implementa con dos punto
 
     override fun onConferenceClicked(conference: Conference, position: Int) {
         val bundle = bundleOf("conference" to conference)
-
+        findNavController().navigate(R.id.sheludeDetailDialogFragment, bundle)
     }
 
 
