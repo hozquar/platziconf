@@ -5,56 +5,63 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.core.os.bundleOf
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.platziconf.R
+import com.example.platziconf.model.Conference
+import com.example.platziconf.view.adapter.ScheduleAdapter
+import com.example.platziconf.view.adapter.ScheduleListener
+import com.example.platziconf.viewmodel.ScheduleViewModel
+import kotlinx.android.synthetic.main.fragment_shcedule.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ShceduleFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ShceduleFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+class ShceduleFragment : Fragment(), ScheduleListener{//implementa con dos puntos":" y para adicionar concoma ","
+    private lateinit var scheduleAdapter: ScheduleAdapter //importa el adaptador es el recyclerview
+    private lateinit var viewModel: ScheduleViewModel //el lector de los datos donde estan los datos guardados, firebase
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+        inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
+
         return inflater.inflate(R.layout.fragment_shcedule, container, false)
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ShceduleFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ShceduleFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel = ViewModelProviders.of(this).get(ScheduleViewModel::class.java)//con ViewModel le agrega la clase ScheduleViewModel
+        viewModel.refresh() //la activa para buscar los datos
+
+        scheduleAdapter = ScheduleAdapter(this) //trae el adaptador
+
+        rv_Schcedule.apply {
+            layoutManager = LinearLayoutManager(view.context , LinearLayoutManager.VERTICAL , false)
+            adapter = scheduleAdapter //trae el recicler vier de fragmet_scheddule.xml
+        }
+
+        observerViewModel() //la mantiene obervada
+
     }
+
+    fun observerViewModel(){ //para observarla
+        viewModel.listSchedule.observe(this, Observer <List<Conference>>{ schedule->
+            scheduleAdapter.update(schedule)
+        })
+
+        viewModel.isLoading.observe(this, Observer<Boolean>{
+            if (it != null)
+                rlBaseSchedule.visibility = View.INVISIBLE
+        })
+
+    }
+
+    override fun onConferenceClicked(conference: Conference, position: Int) {
+        val bundle = bundleOf("conference" to conference)
+
+    }
+
+
 }

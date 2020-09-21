@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.platziconf.R
-import com.example.platziconf.model.Conference
 import com.example.platziconf.model.Speaker
 import com.example.platziconf.view.adapter.SpeakerListener
 
@@ -22,8 +21,8 @@ class SpeakersAdapter(val speakerListener: SpeakerListener):RecyclerView.Adapter
     override fun onBindViewHolder(holder: SpeakersAdapter.ViewHolder, position: Int) {
 
         val speakers= listSpeakers[position] as Speaker
-        holder.tvSpeakersName = speakers.name
-        holder.tvSpeakersWork = speakers.jobtitle
+        holder.tvSpeakersName.text = speakers.name
+        holder.tvSpeakersWork.text = speakers.jobtitle
 
         Glide.with(holder.itemView.context) //indicamos el contexto de la imagen
             .load(speakers.image) //la carga del url
@@ -34,7 +33,7 @@ class SpeakersAdapter(val speakerListener: SpeakerListener):RecyclerView.Adapter
             speakerListener.onSpeakerClicked(speakers,position) }
     }
 
-    fun update(data: List<Conference>){
+    fun update(data: List<Speaker>){
         listSpeakers.clear()
         listSpeakers.addAll(data)
         notifyDataSetChanged()

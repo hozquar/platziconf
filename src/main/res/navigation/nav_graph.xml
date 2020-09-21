@@ -1,5 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
 
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.platziconf.view.ui.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_shceduleFragment"
+            app:destination="@id/shceduleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shceduleFragment"
+        android:name="com.example.platziconf.view.ui.fragment.ShceduleFragment"
+        android:label="fragment_shcedule"
+        tools:layout="@layout/fragment_shcedule" >
+        <action
+            android:id="@+id/action_shceduleFragment_to_speakersFragment"
+            app:destination="@id/speakersFragment" />
+        <action
+            android:id="@+id/action_shceduleFragment_to_sheludeDetailDialogFragment"
+            app:destination="@id/sheludeDetailDialogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/speakersFragment"
+        android:name="com.example.platziconf.view.ui.fragment.SpeakersFragment"
+        android:label="SpeakersFragment" >
+        <action
+            android:id="@+id/action_speakersFragment_to_speakersDetailDialogFragment"
+            app:destination="@id/speakersDetailDialogFragment" />
+        <action
+            android:id="@+id/action_speakersFragment_to_ubicationdetailDialogFragment"
+            app:destination="@id/ubicationdetailDialogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sheludeDetailDialogFragment"
+        android:name="com.example.platziconf.view.ui.fragment.SheludeDetailDialogFragment"
+        android:label="SheludeDetailDialogFragment" />
+    <fragment
+        android:id="@+id/speakersDetailDialogFragment"
+        android:name="com.example.platziconf.view.ui.fragment.SpeakersDetailDialogFragment"
+        android:label="SpeakersDetailDialogFragment" />
+    <fragment
+        android:id="@+id/ubicationFragment"
+        android:name="com.example.platziconf.view.ui.fragment.UbicationFragment"
+        android:label="fragment_ubication"
+        tools:layout="@layout/fragment_ubication" />
+    <fragment
+        android:id="@+id/ubicationdetailDialogFragment"
+        android:name="com.example.platziconf.view.ui.fragment.UbicationdetailDialogFragment"
+        android:label="UbicationdetailDialogFragment" >
+        <action
+            android:id="@+id/action_ubicationdetailDialogFragment_to_ubicationFragment"
+            app:destination="@id/ubicationFragment" />
+    </fragment>
 </navigation>
