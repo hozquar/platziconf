@@ -7,7 +7,7 @@ import com.google.firebase.firestore.FirebaseFirestoreSettings
 
 
 //llama a las bases de datos conference y speakers para ser leidas en FirestoreService
-const val CONFERENCES_COLLECTION_NAME = "conference"
+const val CONFERENCES_COLLECTION_NAME = "conferences"
 const val SPEAKERS_COLLECTION_NAME = "speakers"
 
 class FirestoreService {

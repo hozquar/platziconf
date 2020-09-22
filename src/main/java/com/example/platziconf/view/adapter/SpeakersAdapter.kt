@@ -27,7 +27,7 @@ class SpeakersAdapter(val speakerListener: SpeakerListener):RecyclerView.Adapter
         holder.tvSpeakersWork.text = speakers.jobtitle
 
         Glide.with(holder.itemView.context) //indicamos el contexto de la imagen
-            .load(speakers.image) //la carga del url
+            .load(speakers.image) //la carga del url de la imagen
             .apply(RequestOptions.circleCropTransform()) //transforma la imagen cortandola en un circulo
             .into(holder.ivSpeakerPhoto) //va a colocar la imagen ahi
 

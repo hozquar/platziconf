@@ -61,7 +61,6 @@ class SpeakersFragment : Fragment(), SpeakerListener {
     override fun onSpeakerClicked(speaker: Speaker, position: Int) {
         val bundle = bundleOf("speakers" to speaker)
         findNavController().navigate(R.id.speakersDetailFragmentDialog, bundle)
-        TODO("Not yet implemented")
     }
 
 
