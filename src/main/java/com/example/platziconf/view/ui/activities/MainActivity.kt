@@ -17,11 +17,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setActionBar(findViewById(R.id.tb_Main))
+        setActionBar(findViewById(R.id.tb_Main)) //cambia el toobal por el bonito de platzi
         configNav()
     }
     fun configNav(){
         NavigationUI.setupWithNavController(bnvMenu, Navigation.findNavController(this, R.id.fragContent))
+        //con esta funcion da todo el programa a fragcontent que lleva todo enzima de el el cual esta en el main
 
     }
 }

@@ -1,6 +1,9 @@
 package com.example.platziconf.model
 
-class Speaker {
+import android.os.Parcelable
+import java.io.Serializable
+
+class Speaker :Parcelable{
 
     var name=""
     var jobtitle=""
