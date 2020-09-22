@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.platziconf.R
 import com.example.platziconf.model.Conference
 import com.example.platziconf.view.adapter.ScheduleAdapter
@@ -31,7 +32,8 @@ class ScheduleFragment : Fragment(), ScheduleListener{//implementa con dos punto
 
         viewModel = ViewModelProviders.of(this).get(ScheduleViewModel::class.java)//con ViewModel le agrega la clase ScheduleViewModel
         viewModel.refresh() //la activa para buscar los datos
-        scheduleAdapter = ScheduleAdapter(this) //trae el adaptador
+        scheduleAdapter = ScheduleAdapter(this) //trae el
+
         rv_Schcedule.apply {
             layoutManager = LinearLayoutManager(view.context , LinearLayoutManager.VERTICAL , false)
             adapter = scheduleAdapter //trae el recicler vier de fragmet_scheddule.xml

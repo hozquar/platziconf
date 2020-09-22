@@ -10,12 +10,15 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+
 
 import com.example.platziconf.R
 import com.example.platziconf.model.Speaker
 import com.example.platziconf.view.adapter.SpeakersAdapter
 import com.example.platziconf.view.adapter.SpeakerListener
 import com.example.platziconf.viewmodel.SpeakerViewModel
+import kotlinx.android.synthetic.main.fragment_shcedule.*
 import kotlinx.android.synthetic.main.fragment_speakers.*
 
 
@@ -33,15 +36,15 @@ class SpeakersFragment : Fragment(), SpeakerListener {
 
         viewModel= ViewModelProviders.of(this).get(SpeakerViewModel::class.java)
         viewModel.refresh()
-
         speakerAdapter = SpeakersAdapter(this)
 
         rv_Speakers.apply {
-            LayoutManager = GridLayoutManager(view.context , 2)
+            layoutManager = GridLayoutManager(context , 2)
             adapter = speakerAdapter
         }
         observerViewModel()
     }
+
 
     fun observerViewModel(){
         viewModel.listSpeaker.observe(this, Observer<List<Speaker>>{ speakers ->
