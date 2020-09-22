@@ -1,25 +1,26 @@
 package com.example.platziconf.view.ui.fragment
 
-import SpeakersAdapter
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.GridLayoutManager
+
 import com.example.platziconf.R
 import com.example.platziconf.model.Speaker
+import com.example.platziconf.view.adapter.SpeakersAdapter
 import com.example.platziconf.view.adapter.SpeakerListener
 import com.example.platziconf.viewmodel.SpeakerViewModel
 import kotlinx.android.synthetic.main.fragment_speakers.*
 
 
 class SpeakersFragment : Fragment(), SpeakerListener {
+
     private lateinit var speakerAdapter:SpeakersAdapter
     private lateinit var viewModel: SpeakerViewModel
 
@@ -32,17 +33,19 @@ class SpeakersFragment : Fragment(), SpeakerListener {
 
         viewModel= ViewModelProviders.of(this).get(SpeakerViewModel::class.java)
         viewModel.refresh()
+
         speakerAdapter = SpeakersAdapter(this)
+
         rv_Speakers.apply {
-            RecyclerView.LayoutManager = LinearLayoutManager(view.context , LinearLayoutManager.VERTICAL,false)
+            LayoutManager = GridLayoutManager(view.context , 2)
             adapter = speakerAdapter
         }
         observerViewModel()
     }
 
     fun observerViewModel(){
-        viewModel.listSchedule.observe(this,{speaker ->
-            speakerAdapter.update(speaker)
+        viewModel.listSpeaker.observe(this, Observer<List<Speaker>>{ speakers ->
+            speakerAdapter.update(speakers)
         })
         viewModel.isLoading.observe(this,{
             if(it != null)
@@ -53,13 +56,14 @@ class SpeakersFragment : Fragment(), SpeakerListener {
 
 
     override fun onSpeakerClicked(speaker: Speaker, position: Int) {
-        val bundle = bundleOf("speaker" to conference)
+        val bundle = bundleOf("speakers" to speaker)
         findNavController().navigate(R.id.speakersDetailDialogFragment, bundle)
         TODO("Not yet implemented")
     }
 
 
 }
+
 
 
 

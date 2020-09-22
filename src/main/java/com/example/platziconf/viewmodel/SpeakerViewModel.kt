@@ -1,14 +1,15 @@
 package com.example.platziconf.viewmodel
 
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.platziconf.model.Speaker
 import com.example.platziconf.network.Callback
 import com.example.platziconf.network.FirestoreService
-import java.lang.Exception
+
 //esta funcion sirve igual que la deScheduleViewModel pero con Speakers
-class SpeakerViewModel {
+class SpeakerViewModel:ViewModel() {
     val firestoreService = FirestoreService()
-    var listSchedule: MutableLiveData<List<Speaker>> = MutableLiveData()
+    var listSpeaker: MutableLiveData<List<Speaker>> = MutableLiveData()
     var isLoading = MutableLiveData<Boolean>()
 
     fun refresh(){
@@ -18,7 +19,7 @@ class SpeakerViewModel {
     fun getSpeakerFirebase(){
         firestoreService.getSpeakers(object: Callback<List<Speaker>> {
             override fun onSucces(result: List<Speaker>?) {
-                listSchedule.postValue(result)
+                listSpeaker.postValue(result)
                 processFinished()
             }
 

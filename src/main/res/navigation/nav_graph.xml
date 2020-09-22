@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/shceduleFragment"
-        android:name="com.example.platziconf.view.ui.fragment.ShceduleFragment"
+        android:name="com.example.platziconf.view.ui.fragment.ScheduleFragment"
         android:label="fragment_shcedule"
         tools:layout="@layout/fragment_shcedule" >
         <action

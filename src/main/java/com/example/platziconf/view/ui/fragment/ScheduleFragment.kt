@@ -17,7 +17,7 @@ import com.example.platziconf.view.adapter.ScheduleListener
 import com.example.platziconf.viewmodel.ScheduleViewModel
 import kotlinx.android.synthetic.main.fragment_shcedule.*
 
-class ShceduleFragment : Fragment(), ScheduleListener{//implementa con dos puntos":" y para adicionar concoma ","
+class ScheduleFragment : Fragment(), ScheduleListener{//implementa con dos puntos":" y para adicionar concoma ","
     private lateinit var scheduleAdapter: ScheduleAdapter //importa el adaptador es el recyclerview
     private lateinit var viewModel: ScheduleViewModel //el lector de los datos donde estan los datos guardados, firebase
 
