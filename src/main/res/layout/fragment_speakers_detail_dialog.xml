@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbarSpeakerDetailDialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </Toolbar>
@@ -34,6 +34,7 @@
                         android:orientation="vertical"
                         android:background="@drawable/shape_parrafo">
                         <ImageView
+                            android:id="@+id/ivDetailDialogSpeakerPhoto"
                             android:layout_width="250dp"
                             android:layout_height="250dp"
                             android:src="@drawable/ic_launcher"
@@ -41,6 +42,7 @@
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="15dp"/>
                         <ImageView
+                            android:id="@+id/ivDetailDialogSpeakerUrlTwitter"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_icons_twitter"

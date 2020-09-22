@@ -45,7 +45,6 @@ class SpeakersFragment : Fragment(), SpeakerListener {
         observerViewModel()
     }
 
-
     fun observerViewModel(){
         viewModel.listSpeaker.observe(this, Observer<List<Speaker>>{ speakers ->
             speakerAdapter.update(speakers)
@@ -54,15 +53,12 @@ class SpeakersFragment : Fragment(), SpeakerListener {
             if(it != null)
                 rlBaseSpeakers.visibility = View.INVISIBLE
         })
-
     }
-
 
     override fun onSpeakerClicked(speaker: Speaker, position: Int) {
         val bundle = bundleOf("speakers" to speaker)
         findNavController().navigate(R.id.speakersDetailFragmentDialog, bundle)
     }
-
 
 }
 

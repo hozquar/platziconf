@@ -3,7 +3,7 @@ package com.example.platziconf.model
 import android.os.Parcelable
 import java.io.Serializable
 
-class Speaker{
+class Speaker:Serializable{
 
     var name=""
     var jobtitle=""
