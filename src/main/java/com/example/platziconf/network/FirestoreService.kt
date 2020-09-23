@@ -37,6 +37,7 @@ val settings= FirebaseFirestoreSettings.Builder().setPersistenceEnabled(true).bu
     //lo mismo que la anterior funcion pero con speakers
     fun getSchedule(callback: Callback<List<Conference>>){
         firebaseFirestore.collection(CONFERENCES_COLLECTION_NAME)
+            .orderBy("datetime")
             .get()
             .addOnSuccessListener { result->
                 for (doc in result){
