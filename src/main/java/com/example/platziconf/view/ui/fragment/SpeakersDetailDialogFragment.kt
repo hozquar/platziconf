@@ -59,4 +59,9 @@ class SpeakersDetailDialogFragment : DialogFragment() {
         tvDetailSpeakerAbstract.text = speaker.biography
     }
 
+    override fun onStart() {
+        super.onStart()//aqui colocamos los margenes de la pantalla
+        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT)
+    }
+
 }

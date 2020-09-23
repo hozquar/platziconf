@@ -32,7 +32,7 @@ class ScheduleDetailDialogFragment : DialogFragment() {//se cambia ala herencia 
             dismiss()
         }
         //ahora vamos a traer el objetos que enviamos desde la pantalla de cronograma
-        val conference = arguments?.getSerializable("conferences") as Conference
+        val conference = arguments?.getSerializable("conference") as Conference
         /*Con la variable conference se traen los argumentos del calendario al que dimos click   */
         tollbarConference.title = conference.title
         tvScheduleTituloConferencia.text = conference.title
