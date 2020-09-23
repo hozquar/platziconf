@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/tamanio_Subtituo">
         <Toolbar
-            android:id="@+id/tollbarUbication"
+            android:id="@+id/toolbarUbication"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -16,7 +16,8 @@
     </com.google.android.material.appbar.AppBarLayout>
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -43,7 +44,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/tvDetailUbicationplace"
+                            android:id="@+id/tvDetailNombreUbicacion"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Lugar PlatziConf"
@@ -52,9 +53,13 @@
                             android:textColor="@color/colorPrimary"
                             android:gravity="center_horizontal"
                             android:layout_margin="5dp"/>
-
+                        <LinearLayout
+                            android:id="@+id/lLdireccion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
                         <TextView
-
+                            android:id="@+id/tvDireccionLugar"
                             android:drawableStart="@drawable/ic_place"
                             android:drawablePadding="10dp"
                             android:paddingStart="10dp"
@@ -70,10 +75,16 @@
                             android:layout_height="1dp"
                             android:background="@color/colorPrimaryDark"
                             android:alpha="0.3"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginRight="20dp" />
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginRight="0dp" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/lLTelefono"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
                         <TextView
-
+                            android:id="@+id/tvTelefonoLugar"
                             android:drawableStart="@drawable/ic_phone"
                             android:drawablePadding="10dp"
                             android:paddingStart="10dp"
@@ -91,7 +102,14 @@
                             android:alpha="0.3"
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"/>
-                        <TextView
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/lLLinkLugar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                            android:id="@+id/tvLinkLugar"
 
                             android:drawableStart="@drawable/ic_baseline_insert_link"
                             android:drawablePadding="10dp"
@@ -110,6 +128,7 @@
                             android:alpha="0.3"
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"/>
+                        </LinearLayout>
 
 
                     </LinearLayout>
